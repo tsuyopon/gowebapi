@@ -6,6 +6,7 @@ import (
     // バージョンでpackageを階層にする方法がないのでv1のuserかv2のuserを区別するには定義を分離する
     v1_user "gowebapi/controller/v1/user"
     v1_top "gowebapi/controller/v1/top"
+    "gowebapi/controller/v1/util"
 )
 
 func GetRouter() *gin.Engine {    // *gin.Engineの表記は返り値の型
@@ -16,10 +17,29 @@ func GetRouter() *gin.Engine {    // *gin.Engineの表記は返り値の型
 
     // /api/v1グループ分離
     apiv1 := router.Group("/api/v1")
-    apiv1.GET("/", v1_top.IndexDisplayAction)
-    apiv1.GET("/user", v1_user.UserListDisplayAction)
-    apiv1.GET("/user/add", v1_user.UserAddDisplayAction)
-    apiv1.GET("/user/edit/:id", v1_user.UserEditDisplayAction)
+    {
+        apiv1.GET("/", v1_top.IndexDisplayAction)
+        apiv1.GET("/user", v1_user.UserListDisplayAction)
+        apiv1.GET("/user/add", v1_user.UserAddDisplayAction)
+        apiv1.GET("/user/edit/:id", v1_user.UserEditDisplayAction)
+
+        // util
+        apiv1.GET("/clientip", util.DisplayClientIPAddressAction)
+        apiv1.GET("/ping", util.DisplayPingAction)
+        apiv1.GET("/addHeader", util.DisplayAddHeaderAction)
+        apiv1.GET("/printHeader", util.DisplayPrintHeaderAction)
+        apiv1.GET("/setCookieHeader", util.SetCookieHeaderAction)
+        apiv1.GET("/sleep", util.DisplaySleepAction)
+
+        // 同一関数を指定
+        apiv1.GET("/someMethod", util.SomeMethodAction)
+        apiv1.POST("/someMethod", util.SomeMethodAction)
+        apiv1.PUT("/someMethod", util.SomeMethodAction)
+        apiv1.DELETE("/someMethod", util.SomeMethodAction)
+        apiv1.PATCH("/someMethod", util.SomeMethodAction)
+        apiv1.HEAD("/someMethod", util.SomeMethodAction)
+        apiv1.OPTIONS("/someMethod", util.SomeMethodAction)
+    }
 
     return router
 }
