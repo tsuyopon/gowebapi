@@ -13,7 +13,6 @@ go language webapi sample repository using gin web framework
   - https://github.com/gin-gonic/gin/blob/master/context.go
 
 # やりたいこと
-- HTTPS対応
 - 複数エントリポイント
   - assets
   - chunk
@@ -21,7 +20,6 @@ go language webapi sample repository using gin web framework
   - css, javascriptの配置
 - MVCフレームワーク
   - model作成
-- swagger
 - テスト機能の追加とcoverage report
 - エントリポイント自体のテスト
 - mysql (pool)
