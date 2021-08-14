@@ -31,3 +31,4 @@ go language webapi sample repository using gin web framework
 # 参考
 https://bsblog.casareal.co.jp/archives/4822
 https://bsblog.casareal.co.jp/archives/5121
+https://blog.ishikawa.tech/entry/2017/08/28/122327

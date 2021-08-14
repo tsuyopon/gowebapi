@@ -2,6 +2,7 @@ package util
 
 import (
     "fmt"
+    "strconv"
     "github.com/gin-gonic/gin"
 )
 
@@ -23,4 +24,14 @@ func DisplayPrintHeaderAction(c *gin.Context){
 
 func SetCookieHeaderAction(c *gin.Context){
 	c.SetCookie("user", "hoge", 3600, "/", "localhost", false, true)
+}
+
+func RedirectAction(c *gin.Context){
+	c.Redirect(301, "http://www.google.com/")
+}
+
+func StatusCodeAction(c *gin.Context){
+	status, _ := strconv.Atoi(c.Param("status"))
+	c.Status(status)
+	c.String(200, "Status Code:"+c.Param("status"))
 }

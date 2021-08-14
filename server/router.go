@@ -30,6 +30,8 @@ func GetRouter() *gin.Engine {    // *gin.Engineの表記は返り値の型
         apiv1.GET("/printHeader", util.DisplayPrintHeaderAction)
         apiv1.GET("/setCookieHeader", util.SetCookieHeaderAction)
         apiv1.GET("/sleep", util.DisplaySleepAction)
+        apiv1.GET("/redirect", util.RedirectAction)
+        apiv1.GET("/statusCode/:status", util.StatusCodeAction)
 
         // 同一関数を指定
         apiv1.GET("/someMethod", util.SomeMethodAction)
@@ -39,6 +41,17 @@ func GetRouter() *gin.Engine {    // *gin.Engineの表記は返り値の型
         apiv1.PATCH("/someMethod", util.SomeMethodAction)
         apiv1.HEAD("/someMethod", util.SomeMethodAction)
         apiv1.OPTIONS("/someMethod", util.SomeMethodAction)
+
+        apiv1.POST("/printParams", util.PrintParamsAction)
+    }
+
+    // Basic認証
+    authv1basic := router.Group("/auth/v1", gin.BasicAuth(gin.Accounts{
+        "user1": "pass1",
+        "user2": "pass2",
+    }))
+    {
+        authv1basic.GET("/secret", util.DisplayPingAction)
     }
 
     return router
