@@ -18,6 +18,7 @@ func GetRouter() *gin.Engine {    // *gin.Engineの表記は返り値の型
     router.Static("/images", "./assets/images")
     router.Static("/css", "./assets/css")
     router.Static("/js", "./assets/js")
+    router.Static("/html", "./assets/html")
 
     // web/v1グループ
     webv1:= router.Group("/web/v1")

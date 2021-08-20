@@ -14,16 +14,11 @@ go language webapi sample repository using gin web framework
 
 # やりたいこと
 - 複数エントリポイント
-  - assets
   - chunk
   - swagger
-  - css, javascriptの配置
 - MVCフレームワーク
   - model作成
-- テスト機能の追加とcoverage report
-- エントリポイント自体のテスト
 - mysql (pool)
-- 指定したレスポンスコードを返すもの
 - リクエスト時刻を返す
 - 指定された値をVaryにして返す
 
