@@ -7,9 +7,18 @@ import (
     v1_user "gowebapi/controller/v1/user"
     v1_top "gowebapi/controller/v1/top"
     "gowebapi/controller/v1/util"
+    "gowebapi/middleware/mylog"
 )
 
 func GetRouter() *gin.Engine {    // *gin.Engineの表記は返り値の型
+
+    mylog.Mylogger.SetLogLevel(mylog.ERROR)
+    mylog.Mylogger.Debugf("this is DEBUG level in server/router.go")
+    mylog.Mylogger.Infof("this is INFO level in server/router.go")
+    mylog.Mylogger.Warnf("this is WARN level in server/router.go")
+    mylog.Mylogger.Errorf("this is ERROR level in server/router.go")
+    mylog.Mylogger.Fatalf("this is FATAL level in server/router.go")
+
     router := gin.Default()
 
     router.LoadHTMLGlob("view/**/*.html")  // 全体に適用したい場合(view/common, view/sourceへの適用が必要なため)

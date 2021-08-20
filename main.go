@@ -5,9 +5,17 @@ import (
     "os"
     "github.com/gin-gonic/gin"
     "gowebapi/server"
+    "gowebapi/middleware/mylog"
 )
 
 func main() {
+
+    mylog.Mylogger.SetLogLevel(mylog.DEBUG)     // 最低ログレベルを指定する
+    mylog.Mylogger.Debugf("this is DEBUG in main.go")
+    mylog.Mylogger.Infof("this is INFO in main.go")
+    mylog.Mylogger.Warnf("this is WARN in main.go")
+    mylog.Mylogger.Errorf("this is ERROR in main.go")
+    mylog.Mylogger.Fatalf("this is FATAL in main.go")
 
     // Disable Console Color, you don't need console color when writing the logs to file.
     gin.DisableConsoleColor()
