@@ -12,17 +12,6 @@ go language webapi sample repository using gin web framework
 - check context api
   - https://github.com/gin-gonic/gin/blob/master/context.go
 
-# やりたいこと
-- 複数エントリポイント
-  - chunk
-  - swagger
-- MVCフレームワーク
-  - model作成
-- mysql (pool)
-- リクエスト時刻を返す
-- 指定された値をVaryにして返す
-
-
 # 参考
 https://bsblog.casareal.co.jp/archives/4822
 https://bsblog.casareal.co.jp/archives/5121

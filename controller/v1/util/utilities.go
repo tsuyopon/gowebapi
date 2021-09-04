@@ -1,9 +1,8 @@
 package util
 
 import (
-	"io/ioutil"
-	"fmt"
-	"time"
+    "fmt"
+    "time"
     "strconv"
     "github.com/gin-gonic/gin"
 )
@@ -24,10 +23,4 @@ func DisplaySleepAction(c *gin.Context){
     time.Sleep(time.Duration(second) * time.Second)  // 秒スリープ
     s := fmt.Sprintf("Sleep sec=%d, nsec=%d", second, nanosecond)
     c.String(200, s)
-}
-
-func PrintParamsAction(c *gin.Context){
-	// cf. https://stackoverflow.com/questions/54390031/how-to-read-variables-from-post-payload-in-gin-gonic
-	data, _ := ioutil.ReadAll(c.Request.Body)
-	c.String(200, string(data))
 }

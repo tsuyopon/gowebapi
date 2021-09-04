@@ -29,8 +29,8 @@ func main() {
 
     r := server.GetRouter()
 
-    // どちらか片方のみ有効にしてください。両方は適用されません。
-//    r.Run(":8080")
-    r.RunTLS(":4433", "./conf/testdata/server.crt", "./conf/testdata/server.key")
+    // どちらか片方のみ有効にしてください。両方は適用されません。TLSは起動が遅いので開発時は8080が良いかもしれません。
+    r.Run(":8080")
+//    r.RunTLS(":4433", "./conf/testdata/server.crt", "./conf/testdata/server.key")
 
 }
